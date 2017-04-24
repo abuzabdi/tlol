@@ -3,12 +3,43 @@
 <head>
   <title>TLOL</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+   <%= stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css?family=Raleway:400,700' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+   <%= favicon_link_tag 'http://www.katyisd.org/campus/KDE/PublishingImages/Pages/ELA-Instructional-Resources/t2.png' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+<div id="sidebar">
+    <ul>
+      <li class="category"><%= link_to "TLOL", root_path %></li>
+      <li><%= link_to "Posts", root_path %></li>
+      <li><%= link_to "About" %></li>
+    </ul>
+    
+    
+    <p class="sign_in"> User Login </p>
+    
+  </div>
+
+  <div id="main_content">
+  	<div id="header">
+  		<p>Post Feed</p>
+  			<div class="buttons">
+                <%= link_to '<button type="button">New Post</button>'.html_safe, new_post_path %>
+                <%= link_to '<button type="button">LogOut</button>'.html_safe %>
+  			</div>
+  	</div>
+
+  	<% flash.each do |name, msg| %>
+  		<%= content_tag(:div, msg, class: "alert") %>
+  	<% end %>
+
+
+	<%= yield %>
+
+
+  </div>
 
 </body>
 </html>
