@@ -18,7 +18,7 @@
     </ul>
     
     <% if !user_signed_in? %>
-      <p class="sign_in"><%= link_to "User Login", new_user_session_path %></p>
+      <p class="sign_in"><% link_to "User Login", new_user_session_path %></p>
     <% end %>
     
   </div>
